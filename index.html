@@ -31,8 +31,8 @@
 				</button>
 				<ul class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center">
 					<li class="dropdown search-dropdown nav-item py-lg-3">
-						<a href="javascript:void(0)" class="btn btn-outline-dark flex-center" type="button" onclick="generateCart()"
-							data-bs-toggle="modal" data-bs-target="#cartModal" 
+						<a href="javascript:void(0)" class="btn btn-outline-dark flex-center" type="button" 
+							data-bs-toggle="modal" data-bs-target="#cartModal" onclick="open_modal()"
 							data-bs-auto-close="outside">
 							<i class="fas fa-shopping-cart me-1"></i> Cart <span
 								class="badge bg-dark text-white ms-1 rounded-pill" id="count_product">0</span>
@@ -82,7 +82,7 @@
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(1)"
+							<div class="text-center"><button type="button" onclick="addToCart(1)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
 					</div>
@@ -97,7 +97,7 @@
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(2)"
+							<div class="text-center"><button type="button" onclick="addToCart(2)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
 					</div>
@@ -112,7 +112,7 @@
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(3)"
+							<div class="text-center"><button type="button" onclick="addToCart(3)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
 					</div>
@@ -135,7 +135,7 @@
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(4)"
+							<div class="text-center"><button type="button" onclick="addToCart(4)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
 					</div>
@@ -150,7 +150,7 @@
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(5)"
+							<div class="text-center"><button type="button" onclick="addToCart(5)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
 					</div>
@@ -165,7 +165,7 @@
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(6)"
+							<div class="text-center"><button type="button" onclick="addToCart(6)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
 					</div>
@@ -188,7 +188,7 @@
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(7)"
+							<div class="text-center"><button type="button" onclick="addToCart(7)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
 					</div>
@@ -203,7 +203,7 @@
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(8)"
+							<div class="text-center"><button type="button" onclick="addToCart(8)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
 					</div>
@@ -218,7 +218,7 @@
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(9)"
+							<div class="text-center"><button type="button" onclick="addToCart(9)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
 					</div>
@@ -250,12 +250,12 @@
 							<tr>
 								<th scope="col">Product</th>
 								<th scope="col">Price</th>
-								<th scope="col">Qty.</th>
+								<th scope="col" class="col-2">Qty.</th>
 								<th scope="col">Total <small>(with discount)</small></th>
 							</tr>
 						</thead>
 						<tbody id="cart_list">
-							<tr>
+							<!-- <tr>
 								<th scope="row">Cooking oil</th>
 								<td>$10.5</td>
 								<td>2</td>
@@ -272,7 +272,7 @@
 								<td>$15</td>
 								<td>3</td>
 								<td>$45</td>
-							</tr>
+							</tr> -->
 						</tbody>
 					</table>
 					<div class="text-center fs-3">

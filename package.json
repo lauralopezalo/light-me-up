@@ -1,0 +1,9 @@
+{
+  "name": "it-academy-s3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lauralopezalo/IT-Academy-React-S3.git",
+  "author": "Laura López Alonso <laura.lopez.alo@gmail.com>",
+  "license": "MIT",
+  "type": "module"
+}

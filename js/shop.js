@@ -1,3 +1,5 @@
+// import products from "../data/products";
+
 // If you have time, you can move this variable "products" to a json or js file and load the data in this js. It will look more professional
 var products = [
     {
@@ -63,6 +65,8 @@ var products = [
         type: "clothes",
     },
 ];
+
+
 // Array with products (objects) added directly with push(). Products in this array are repeated.
 let cartList = [];
 
@@ -70,6 +74,8 @@ let cartList = [];
 let cart = [];
 
 let total = 0;
+
+let cartItems = 0;
 
 // Exercise 1
 function buy(id) {
@@ -86,8 +92,9 @@ function buy(id) {
 
 // Exercise 2
 function cleanCart() {
-    cartList.splice(0, cartList.length);
-    generateCart()
+    cart.splice(0, cart.length);
+    cartItems = 0;
+    printCart();
     document.getElementById("count_product").innerHTML = 0;
 }
 
@@ -119,19 +126,25 @@ function generateCart() {
         }
     }
     applyPromotionsCart();
-    printCart();
-    console.log(cart);
 }
 
 // Exercise 5
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
     for (let i in cart) {
-        if (cart[i].id === 1 && cart[i].quantity > 2) {
-            cart[i].subtotalWithDiscount = cart[i].quantity * 10;
+        if (cart[i].id === 1) {
+            if (cart[i].quantity > 2) {
+                cart[i].subtotalWithDiscount = cart[i].quantity * 10;
+            } else {
+                delete cart[i].subtotalWithDiscount;
+            }
         }
-        if (cart[i].id === 3 && cart[i].quantity > 9) {
-            cart[i].subtotalWithDiscount = (cart[i].subtotal * 2) / 3;
+        if (cart[i].id === 3) {
+            if (cart[i].quantity > 9) {
+                cart[i].subtotalWithDiscount = (cart[i].subtotal * 2) / 3;
+            } else {
+                delete cart[i].subtotalWithDiscount;
+            }
         }
     }
 }
@@ -148,7 +161,9 @@ function printCart() {
             cart[i].name.slice(1).toLowerCase()
             }</th>
             <td>$${cart[i].price}</td>
-            <td>${cart[i].quantity}</td>
+            <td><div class="d-inline-flex">${cart[i].quantity} <button class="btn btn-success btn-sm" onclick="addToCart(${cart[i].id
+            })">+</button> <button class="btn btn-danger btn-sm" onclick="removeFromCart(${cart[i].id
+            })">-</button></div></td>
             <td>$${cart[i].subtotalWithDiscount
                 ? cart[i].subtotalWithDiscount.toFixed(2)
                 : cart[i].subtotal
@@ -169,12 +184,43 @@ function addToCart(id) {
     // Refactor previous code in order to simplify it
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
+    for (let i in products) {
+        if (id === products[i].id) {
+            if (cart.includes(products[i])) {
+                const product = cart.find((product) => product.id === products[i].id);
+                product.quantity += 1;
+                product.subtotal = product.quantity * product.price;
+            } else {
+                cart.push(products[i]);
+                const product = cart.find((product) => product.id === products[i].id);
+                product.quantity = 1;
+                product.subtotal = product.price;
+            }
+            cartItems++;
+        }
+    }
+    document.getElementById("count_product").innerHTML = cartItems;
+    applyPromotionsCart();
+    printCart();
 }
 
 // Exercise 8
 function removeFromCart(id) {
-    // 1. Loop for to the array products to get the item to add to cart
+    // 1. Loop for to the array products to get the item to remove from cart
     // 2. Add found product to the cartList array
+    const product = cart.find((product) => product.id === id);
+    if (product.quantity === 1) {
+        const indexToDelete = cart.indexOf(product);
+        cart.splice(indexToDelete, 1);
+    } else {
+        product.quantity--;
+        product.subtotal = product.quantity * product.price;
+        applyPromotionsCart();
+        
+    }
+    cartItems--;
+    document.getElementById("count_product").innerHTML = cartItems;
+    printCart();
 }
 
 function open_modal() {
