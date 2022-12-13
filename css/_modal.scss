@@ -1,9 +1,4 @@
 #cartCanvas {
-  
-
-    // .modal-dialog {
-    //     // max-width: 700px;
-    // }
     #cart-buttons {
         width: 60px;
         display: flex;
@@ -11,6 +6,7 @@
         margin: 0 0.5rem;
         gap: 5px;
         cursor: pointer;
+
         i {
             font-size: 1.2rem;
         }
@@ -21,7 +17,8 @@
         font-weight: 400;
         font-size: 1.2rem;
     }
-    #total_price{
+
+    #total_price {
         font-weight: 600;
         font-size: 1.5rem;
     }

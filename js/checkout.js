@@ -1,15 +1,13 @@
 // Exercise 6
 function validate() {
-	var error = 0;
 	// Get the input fields
-	var fName = document.getElementById("fName");
-	var fEmail = document.getElementById("fEmail");
+	let fName = document.getElementById("fName");
+	let fEmail = document.getElementById("fEmail");
 
-	let message = "";
 
 	// Get the error elements
-	var errorName = document.getElementById("errorName");
-	var errorEmail = document.getElementById("errorEmail");
+	let errorName = document.getElementById("errorName");
+	let errorEmail = document.getElementById("errorEmail");
 
 	// Validate fields entered by the user: name, phone, password, and email
 	if (
@@ -18,7 +16,6 @@ function validate() {
 		/^\s+$/.test(fName.value) ||
 		!/^([A-ZZÁÉÍÓÚa-zñáéíóú]+[\s]*)+$/.test(fName.value)
 	) {
-		error++;
 		fName.style.border = "2px solid red";
 		document.getElementById("errorName").style.display = "block";
 	} else {
@@ -32,7 +29,6 @@ function validate() {
 		/^\s+$/.test(fLastN.value) ||
 		!/^([A-ZZÁÉÍÓÚa-zñáéíóú]+[\s]*)+$/.test(fLastN.value)
 	) {
-		error++;
 		fLastN.style.border = "2px solid red";
 		document.getElementById("errorLastN").style.display = "block";
 	} else {
@@ -46,7 +42,6 @@ function validate() {
 		/^\s+$/.test(fEmail.value) ||
 		!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fEmail.value)
 	) {
-		error++;
 		fEmail.style.border = "2px solid red";
 		document.getElementById("errorEmail").style.display = "block";
 	} else {
@@ -58,7 +53,6 @@ function validate() {
 		fPassword.value == "" ||
 		!/^(?=.*\d)(?=.*[a-zA-Z]).{3,}$/.test(fPassword.value)
 	) {
-		error++;
 		fPassword.style.border = "2px solid red";
 		document.getElementById("errorPassword").style.display = "block";
 	} else {
@@ -71,7 +65,6 @@ function validate() {
 		fAddress.value.length < 3 ||
 		/^\s+$/.test(fAddress.value)
 	) {
-		error++;
 		fAddress.style.border = "2px solid red";
 		document.getElementById("errorAddress").style.display = "block";
 	} else {
@@ -84,7 +77,6 @@ function validate() {
 		fPhone.value.length < 3 ||
 		!/^\d{9}$/.test(fPhone.value)
 	) {
-		error++;
 		fPhone.style.border = "2px solid red";
 		document.getElementById("errorPhone").style.display = "block";
 	} else {
@@ -92,9 +84,4 @@ function validate() {
 		document.getElementById("errorPhone").style.display = "none";
 	}
 
-	if (error > 0) {
-		alert("error");
-	} else {
-		alert("OK");
-	}
 }

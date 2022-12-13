@@ -7,7 +7,8 @@
 
 :root {
     --accent-color: rgb(212, 127, 0);
-  }
+    --boder-bottom: 1px solid var(--accent-color);
+}
 
 
 * {
@@ -25,13 +26,32 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+
+    :hover {
+        color: white;
+    }
+}
+
 #arrow {
     width: 100px;
     height: 5px;
 }
 
-
-
-
-
+.btn {
+    border-radius: 0;
+    border: none;
+    border-bottom: var(--boder-bottom);
+    &:hover {
+        background-color: var(--accent-color);
+        color: white;
+        border-color: black;
+    }
+    
+    &:focus {
+        box-shadow: none;
+    }
+}
 

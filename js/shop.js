@@ -177,10 +177,8 @@ function fillCards() {
 								<p id="product-name">${products[i].name}</p>
 								<div class="d-flex justify-content-between">
 									<p id="product-price">$${products[i].price}</p>
-									<div>
-										<a type="button" onclick="addToCart(${[i]})"><div
-												class="fa-solid fa-bag-shopping text-white"></div></a>
-									</div>
+									<i onclick="addToCart(${[i]})" id="shop-icon"
+												class="fa-solid fa-bag-shopping"></i>
 								</div>
 							</div>
 						</div>
@@ -209,10 +207,7 @@ function fillCards() {
 								<p id="product-name">${products[i].name}</p>
 								<div class="d-flex justify-content-between">
 									<p id="product-price">$${products[i].price} >> <span id="product-offer"> ${products[i].offer.percent}% off buying ${products[i].offer.number}u.</span></p>
-									<div>
-										<a type="button" onclick="addToCart(${[i]})"><div
-												class="fa-solid fa-bag-shopping text-white"></div></a>
-									</div>
+									<i onclick="addToCart(${[i]})" id="shop-icon" class="fa-solid fa-bag-shopping"></i>
 								</div>
 							</div>
 						</div>

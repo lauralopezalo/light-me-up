@@ -23,5 +23,26 @@ header {
             }
         }
     }
+  
+}
+@media screen and (max-width: 576px) {
+    h1 {
+        font-size: 3rem !important;
+    }
+
+    p {
+        font-size: 1.5rem !important;
+    }
+
+    header {
+        > div{
+            padding: 0;
+        }
+    }
 }
 
+@media screen and (max-width: 768px) {
+    header {
+        background-position: center;
+    }
+}

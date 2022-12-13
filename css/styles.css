@@ -82,6 +82,22 @@ header > div > div p {
   font-size: 3rem;
 }
 
+@media screen and (max-width: 576px) {
+  h1 {
+    font-size: 3rem !important;
+  }
+  p {
+    font-size: 1.5rem !important;
+  }
+  header > div {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    background-position: center;
+  }
+}
 #cartCanvas #cart-buttons {
   width: 60px;
   display: flex;
@@ -127,8 +143,9 @@ header > div > div p {
   margin: 1rem 0 0 0;
   font-weight: 300;
 }
-#card #product-info #product-name, #card #product-info #product-price {
-  font-size: 1rem;
+#card #product-info #product-name,
+#card #product-info #product-price {
+  font-size: 0.9rem;
   text-transform: uppercase;
   font-weight: 500;
   margin: 0;
@@ -146,6 +163,18 @@ header > div > div p {
   font-weight: 500;
   margin: 1rem 0 0 0;
 }
+#card #product-info #shop-icon {
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+#card #product-info #shop-icon:hover {
+  font-size: 1.2rem;
+  color: white;
+}
+#card #product-info #shop-icon:active {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+}
 
 #index-footer {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/lamps/footer.jpg");
@@ -161,37 +190,90 @@ header > div > div p {
   color: white;
 }
 
-a:hover, i:hover {
+#footer-links a:hover, i:hover {
   color: var(--accent-color);
+}
+
+#formEmail {
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: var(--boder-bottom);
+  color: white;
+}
+#formEmail::-moz-placeholder {
+  color: lightgray;
+}
+#formEmail:-ms-input-placeholder {
+  color: lightgray;
+}
+#formEmail::placeholder {
+  color: lightgray;
+}
+#formEmail:focus {
+  box-shadow: none;
+}
+#formEmail:focus::-moz-placeholder {
+  color: transparent;
+}
+#formEmail:focus:-ms-input-placeholder {
+  color: transparent;
+}
+#formEmail:focus::placeholder {
+  color: transparent;
 }
 
 .rrss {
   padding-top: 40px;
 }
 
-#checkout-body {
-  background-color: white;
-  color: black;
-  height: 100vh;
-}
-
-#checkout-footer {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/lamps/footer.jpg");
-  background-repeat: none;
-  background-size: cover;
-  background-position-x: center;
-  background-position-y: 550px;
-}
-
 #checkout-info {
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.5);
-  margin: 0;
-  padding: 0;
+  background-color: rgba(212, 127, 0, 0.7);
+  margin-top: 80px;
+}
+
+#checkout-form input {
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: var(--boder-bottom);
+  color: white;
+}
+#checkout-form input::-moz-placeholder {
+  color: lightgray;
+}
+#checkout-form input:-ms-input-placeholder {
+  color: lightgray;
+}
+#checkout-form input::placeholder {
+  color: lightgray;
+}
+#checkout-form input:focus {
+  box-shadow: none;
+}
+#checkout-form input:focus::-moz-placeholder {
+  color: transparent;
+}
+#checkout-form input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+#checkout-form input:focus::placeholder {
+  color: transparent;
+}
+
+#btn-submit {
+  background-color: black;
+  color: white;
+  width: 150px;
+}
+#btn-submit:hover {
+  background-color: var(--accent-color);
 }
 
 :root {
   --accent-color: rgb(212, 127, 0);
+  --boder-bottom: 1px solid var(--accent-color);
 }
 
 * {
@@ -209,7 +291,29 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+a :hover {
+  color: white;
+}
+
 #arrow {
   width: 100px;
   height: 5px;
+}
+
+.btn {
+  border-radius: 0;
+  border: none;
+  border-bottom: var(--boder-bottom);
+}
+.btn:hover {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: black;
+}
+.btn:focus {
+  box-shadow: none;
 }/*# sourceMappingURL=styles.css.map */
