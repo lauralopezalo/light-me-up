@@ -1,4 +1,4 @@
-let products = [
+const products = [
     {
         id: 1,
         name: "cooking oil",
@@ -61,11 +61,11 @@ let products = [
         price: 9.99,
         type: "clothes",
     },
-];
+]
 
 
 // if (typeof module !== 'undefined') {
 //     module.exports = products;
 //   }
 
-export { products };
+// export default products;

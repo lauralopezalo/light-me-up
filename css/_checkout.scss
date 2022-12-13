@@ -1,0 +1,30 @@
+
+#checkout-body{
+    // background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/lamps/footer.jpg");
+    // background-repeat: none;
+    // background-size: cover;
+    // background-position: center;
+    background-color: white;
+    color: black;
+    height: 100vh;
+}
+
+
+#checkout-footer {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/lamps/footer.jpg");
+    // background-image: url("../images/lamps/footer.jpg");
+    // height: 300px;
+    background-repeat: none;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 550px; 
+}
+
+
+
+#checkout-info {
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding: 0;
+}

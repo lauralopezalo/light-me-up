@@ -1,72 +1,3 @@
-// import products from "../data/products";
-
-// If you have time, you can move this variable "products" to a json or js file and load the data in this js. It will look more professional
-var products = [
-    {
-        id: 1,
-        name: "cooking oil",
-        price: 10.5,
-        type: "grocery",
-        offer: {
-            number: 3,
-            percent: 20,
-        },
-    },
-    {
-        id: 2,
-        name: "Pasta",
-        price: 6.25,
-        type: "grocery",
-    },
-    {
-        id: 3,
-        name: "Instant cupcake mixture",
-        price: 5,
-        type: "grocery",
-        offer: {
-            number: 10,
-            percent: 30,
-        },
-    },
-    {
-        id: 4,
-        name: "All-in-one",
-        price: 260,
-        type: "beauty",
-    },
-    {
-        id: 5,
-        name: "Zero Make-up Kit",
-        price: 20.5,
-        type: "beauty",
-    },
-    {
-        id: 6,
-        name: "Lip Tints",
-        price: 12.75,
-        type: "beauty",
-    },
-    {
-        id: 7,
-        name: "Lawn Dress",
-        price: 15,
-        type: "clothes",
-    },
-    {
-        id: 8,
-        name: "Lawn-Chiffon Combo",
-        price: 19.99,
-        type: "clothes",
-    },
-    {
-        id: 9,
-        name: "Toddler Frock",
-        price: 9.99,
-        type: "clothes",
-    },
-];
-
-
 // Array with products (objects) added directly with push(). Products in this array are repeated.
 let cartList = [];
 
@@ -90,6 +21,7 @@ function buy(id) {
     document.getElementById("count_product").innerHTML = cartList.length;
 }
 
+
 // Exercise 2
 function cleanCart() {
     cart.splice(0, cart.length);
@@ -97,6 +29,7 @@ function cleanCart() {
     printCart();
     document.getElementById("count_product").innerHTML = 0;
 }
+
 
 // Exercise 3
 function calculateTotal() {
@@ -107,6 +40,7 @@ function calculateTotal() {
     }
     console.log("El total es: " + total);
 }
+
 
 // Exercise 4
 function generateCart() {
@@ -128,26 +62,22 @@ function generateCart() {
     applyPromotionsCart();
 }
 
+
 // Exercise 5
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
     for (let i in cart) {
-        if (cart[i].id === 1) {
-            if (cart[i].quantity > 2) {
-                cart[i].subtotalWithDiscount = cart[i].quantity * 10;
-            } else {
-                delete cart[i].subtotalWithDiscount;
-            }
-        }
-        if (cart[i].id === 3) {
-            if (cart[i].quantity > 9) {
-                cart[i].subtotalWithDiscount = (cart[i].subtotal * 2) / 3;
+        if (cart[i].offer) {
+            if (cart[i].quantity >= cart[i].offer.number) {
+                let discount = cart[i].quantity * (cart[i].price * (1 - (cart[i].offer.percent / 100)));
+                cart[i].subtotalWithDiscount = discount
             } else {
                 delete cart[i].subtotalWithDiscount;
             }
         }
     }
 }
+
 
 // Exercise 6
 function printCart() {
@@ -161,9 +91,10 @@ function printCart() {
             cart[i].name.slice(1).toLowerCase()
             }</th>
             <td>$${cart[i].price}</td>
-            <td><div class="d-inline-flex">${cart[i].quantity} <button class="btn btn-success btn-sm" onclick="addToCart(${cart[i].id
-            })">+</button> <button class="btn btn-danger btn-sm" onclick="removeFromCart(${cart[i].id
-            })">-</button></div></td>
+            <td><div id="cart-buttons" class="d-inline-flex">${cart[i].quantity
+            } <div><a onclick="addToCart(${cart[i].id
+            })"><i class="fa-solid fa-square-plus"></i></a> <a onclick="removeFromCart(${cart[i].id
+            })"><i class="fa-solid fa-square-minus"></i></a></div></td>
             <td>$${cart[i].subtotalWithDiscount
                 ? cart[i].subtotalWithDiscount.toFixed(2)
                 : cart[i].subtotal
@@ -189,7 +120,7 @@ function addToCart(id) {
             if (cart.includes(products[i])) {
                 const product = cart.find((product) => product.id === products[i].id);
                 product.quantity += 1;
-                product.subtotal = product.quantity * product.price;
+                product.subtotal = Math.round(product.quantity * product.price * 100) / 100;
             } else {
                 cart.push(products[i]);
                 const product = cart.find((product) => product.id === products[i].id);
@@ -216,7 +147,6 @@ function removeFromCart(id) {
         product.quantity--;
         product.subtotal = product.quantity * product.price;
         applyPromotionsCart();
-        
     }
     cartItems--;
     document.getElementById("count_product").innerHTML = cartItems;
@@ -227,3 +157,71 @@ function open_modal() {
     console.log("Open Modal");
     printCart();
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Loop for the array of products to fill in the cards
+function fillCards() {
+    let whatsNewContainer = document.getElementById("whatsnew-cards-container");
+    let discoverContainer = document.getElementById("discover-container");
+    let salesContainer = document.getElementById("sales-container");
+    whatsNewContainer.innerHTML = "";
+    discoverContainer.innerHTML = "";
+    for (let i = 1; i < 5; i++) {
+        whatsNewContainer.innerHTML += `
+<div class="col mb-5 d-flex justify-content-center ">
+					<div id="card">
+					<div id="product-image"><img class="card-img-top" src="./images/lamps/lamp${[i]}.jpeg" alt="lamp image" /></div>	
+						<div class="d-flex justify-content-between align-items-end">
+							<div id="product-info">
+								<p id="product-brand">By ${products[i].brand}</p>
+								<p id="product-name">${products[i].name}</p>
+								<div class="d-flex justify-content-between">
+									<p id="product-price">$${products[i].price}</p>
+									<div>
+										<a type="button" onclick="addToCart(${[i]})"><div
+												class="fa-solid fa-bag-shopping text-white"></div></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div></div>`;
+    }
+    for (let i = 5; i < 9; i++) {
+        discoverContainer.innerHTML += `
+<div class="col mb-5 d-flex justify-content-center ">
+					<div id="card">
+					<div id="product-image"><img class="card-img-top" src="./images/lamps/lamp${[i]}.jpeg" alt="lamp image" /></div>	
+						<div class="d-flex justify-content-between align-items-end">
+							<div id="product-info">
+								<p id="product-category">${products[i].type}</p>
+							</div>
+						</div>
+					</div></div>`;
+    }
+    for (let i = 9; i < products.length; i++) {
+        salesContainer.innerHTML += `
+<div class="col mb-5 d-flex justify-content-center ">
+					<div id="card">
+					<div id="product-image"><img class="card-img-top" src="./images/lamps/lamp${[i]}.jpeg" alt="lamp image" /></div>	
+						<div class="d-flex justify-content-between align-items-end">
+							<div id="product-info">
+								<p id="product-brand">By ${products[i].brand}</p>
+								<p id="product-name">${products[i].name}</p>
+								<div class="d-flex justify-content-between">
+									<p id="product-price">$${products[i].price} >> <span id="product-offer"> ${products[i].offer.percent}% off buying ${products[i].offer.number}u.</span></p>
+									<div>
+										<a type="button" onclick="addToCart(${[i]})"><div
+												class="fa-solid fa-bag-shopping text-white"></div></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div></div>`;
+    }
+}
+
+fillCards()
+
+
+
+

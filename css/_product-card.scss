@@ -1,0 +1,49 @@
+#card {
+    max-width: 300px;
+    // background-color: red;
+    #product-image{
+        height: 260px;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-start;
+
+    }
+    .card-img-top {
+        border-radius: 0;
+    }
+    a {
+        cursor: pointer;
+    }
+
+    #product-info {
+        width: 100%;
+
+        #product-brand {
+            font-size: 0.9rem;
+            text-transform: capitalize;
+            margin: 1rem 0 0 0;
+            font-weight: 300;
+        }
+
+        #product-name, #product-price  {
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin: 0;
+        }
+        #product-category  {
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin: 1rem 0 0 0;
+        }
+        #product-offer  {
+            color:  var(--accent-color);
+            font-size: 1rem;
+            text-transform: lowercase;
+            font-weight: 500;
+            margin: 1rem 0 0 0;
+        }
+    }
+
+}

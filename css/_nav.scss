@@ -1,0 +1,62 @@
+#lightmeup {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+
+    &:hover {
+        color: white;
+    }
+}
+
+ul {
+    .nav-link {
+        color: white;
+        text-transform: uppercase;
+        &:hover, &:focus {
+            color: white;
+        }
+    }
+
+    span {
+        color:  var(--accent-color);
+        font-weight: 500;
+        &:hover {
+            color:  var(--accent-color);
+        }
+    }
+}
+
+.dropdown-item:active {
+    background-color:  var(--accent-color);
+}
+
+#shopping-icon {
+    font-size: 1.2rem;
+
+    span {
+        padding: 0 3px;
+        font-size: 0.7rem;
+        border: 0.5px black solid;
+        bottom: -7px;
+        right: -7px;
+    }
+}
+
+#burger-icon {
+    font-size: 1.2rem;
+    margin-left: 7px;
+    color: white;
+}
+
+.dropdown-menu{
+    background-color: black;
+    color: white;
+}
+
+.dropdown-item{
+    color: white;
+}

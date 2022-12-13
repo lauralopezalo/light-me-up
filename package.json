@@ -5,5 +5,8 @@
   "repository": "https://github.com/lauralopezalo/IT-Academy-React-S3.git",
   "author": "Laura López Alonso <laura.lopez.alo@gmail.com>",
   "license": "MIT",
-  "type": "module"
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "sass": "^1.56.2"
+  }
 }
