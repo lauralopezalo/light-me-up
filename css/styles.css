@@ -314,4 +314,24 @@ a :hover {
 }
 .btn:focus {
   box-shadow: none;
+}
+
+#see-more-arrow {
+  position: relative;
+  margin-right: 1rem;
+}
+#see-more-arrow h6 {
+  position: absolute;
+  right: 55px;
+  top: 4px;
+}
+@media screen and (max-width: 576px) {
+  #see-more-arrow h6 {
+    display: none;
+  }
+}
+#see-more-arrow img {
+  position: absolute;
+  right: 0px;
+  top: -6px;
 }/*# sourceMappingURL=styles.css.map */
