@@ -6,10 +6,8 @@
 
 #checkout-form input {
     border-radius: 0;
-    background-color: transparent;
     border: none;
     border-bottom: var(--boder-bottom);
-    color: white;
     &::placeholder {
         color: lightgray;
     }

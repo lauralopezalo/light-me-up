@@ -235,10 +235,8 @@ header > div > div p {
 
 #checkout-form input {
   border-radius: 0;
-  background-color: transparent;
   border: none;
   border-bottom: var(--boder-bottom);
-  color: white;
 }
 #checkout-form input::-moz-placeholder {
   color: lightgray;
